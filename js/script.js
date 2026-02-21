@@ -1,3 +1,5 @@
+let dialogs = document.getElementsByClassName("imgDialog");
+
 let imgData = 
 [
 "eisberg.jpg",
@@ -46,6 +48,7 @@ let  ImgNumber= [
 
 
 
+
 function render(){
     let contentRef = document.getElementById('img_content');
     contentRef.innerHTML = ""
@@ -67,9 +70,9 @@ function imgTemplate(index){
     <img src="./img/${imgData[index]}" class="img_full-width" alt="${ImgDescription[index]}">
     </section>
     <nav>
-  <button>  <img src="./img/prev.svg" alt="Pfeil nach Vorne" onclick="plusSlides(1)"> </button>
+  <button onclick="prevPicture(${index})">  <img src="./img/prev.svg" alt="Pfeil zurück" > </button>
     <p>${ImgNumber[index]}/12</p>
-   <button> <img src="./img/next.svg" alt="Pfeil Zurück"></button>
+   <button onclick="nextPicture(${index})"> <img src="./img/next.svg" alt="Vorwärts"></button>
 
     </nav>
   </dialog>
@@ -77,13 +80,29 @@ function imgTemplate(index){
 }
 
 function openDialog(index){
-    const dialogref = document.getElementsByClassName("imgDialog") [index];
-    dialogref.showModal();
-    dialogref.classList.add("opened")
-
+  dialogs[index].showModal();
 }
 
 function closeDialog(index){
-    const dialogref = document.getElementsByClassName("imgDialog") [index];
-    dialogref.close();
+    dialogs[index].close();
 }
+function nextPicture(index){
+
+  dialogs[index].close();
+
+  let newIndex = index + 1;
+  if(newIndex >= dialogs.length){
+      newIndex = 11;
+  }
+
+  dialogs[newIndex].showModal();
+}
+
+function prevPicture(index){
+dialogs[index].close();
+
+let newIndex = index - 1;
+dialogs[newIndex].showModal();
+
+}
+
