@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    background-color: var(--background-blue);
+    
+}
+
+:root{
+    --background-blue:#06171E;
+    --secondary-coiir: #09212A;
+}
+
+:hover{
+    transition: all 500ms ease;
+}
+
+p{
+    color: #fff;
+}
+
+@font-face {
+    font-family: "Figtree", sans-serif;
+    src: url('./fonts/Figtree\ 2.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+.wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+header{
+    background-color: var(--secondary-coiir);
+    padding: 20px 140px;
+}
+
+.fotogram_logo{
+    width: 215px;
+    height: auto;
+}
+
+h1{
+    font-size: 56px;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+}
+
+#img_content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 15px;
+    justify-content: center;
+    padding: 5% 0;
+}
+
+.gallery_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 2px solid var(--background-blue);
+}
+
+.img_full-width{
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+}
+
+.menu_flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dev_logo{
+    padding: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+dialog{
+    background-color: #09212A;
+    border: 0;
+    padding: 56px 64px;
+    border-radius: 40px;
+    
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 0 6%;
+    padding: 40px 0 0 0;
+}
+
+footer{
+    background-color: var(--secondary-coiir);
+    border-radius: 100% 100% 0 0;
+    text-align: center;
+    color: #627B84;
+    padding: 20px;
+}
+
+.close_button{
+   width: 24px;
+   height: 24px;
+   border-radius: 100%;
+   padding: 8px;
+    }
+
+.close_button:hover{
+background-color: rgba(18, 70, 88, 1)
+
+}
+
+footer p{
+ margin: 0;
+ font-size: 16px;
+}
+
+button{
+   background-color: rgba(253, 91, 79, 0.1);
+   Border: 0;
+   border-radius: 100%;
+   height: 60px;
+   width: 60px; 
+}
+
+button:hover{
+    background-color: rgba(253, 91, 79, 0.2);
+    transform: scale(1.10);
+ }
+
