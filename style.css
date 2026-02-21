@@ -2,7 +2,9 @@ body{
     margin: 0;
     font-family: "Figtree", sans-serif;
     background-color: var(--background-blue);
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 :root{
@@ -29,11 +31,13 @@ p{
 .wrapper{
     max-width: 1440px;
     margin: 0 auto;
+    flex: 1;
 }
 
 header{
     background-color: var(--secondary-coiir);
     padding: 20px 140px;
+    display: flex;
 }
 
 .fotogram_logo{
@@ -42,7 +46,7 @@ header{
 }
 
 h1{
-    font-size: 56px;
+    font-size: clamp(2.875rem, 2.6964rem + 0.8929vw, 3.5rem);
     font-weight: 800;
     text-align: center;
     color: #fff;
@@ -53,7 +57,7 @@ h1{
     flex-wrap: wrap;
     gap: 40px 15px;
     justify-content: center;
-    padding: 5% 0;
+    padding: 0 5% 5% 5%;
 }
 
 .gallery_img{
@@ -72,11 +76,14 @@ h1{
     width: 560px;
     height: 375px;
     object-fit: cover;
+
 }
 
 .menu_flex{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom : 25px;
 }
 
 .dev_logo{
@@ -154,5 +161,9 @@ footer p{
    
         padding: 32px 16px;
         
+    }
+
+    header {
+        justify-content: center;
     }
   }
