@@ -15,18 +15,18 @@ let imgData =
 ]
 
 let  ImgDescription= [
-    "Bild 1",
-    "Bild 2",
-    "Bild 3",
-    "Bild 4",
-    "Bild 5",
-    "Bild 6",
-    "Bild 7",
-    "Bild 8",
-    "Bild 9",
-    "Bild 10",
-    "Bild 11",
-    "Bild 12"
+    "Berge Panorama",
+    "Ente schwimmt im Wasser",
+    "Person betrachtet den Nachthimmel",
+    "Bewölkter Himmel",
+    "Aussicht Berg",
+    "Baum im Winter",
+    "See Panorama",
+    "Stadt bei Nacht",
+    "Schneeammer",
+    "Blaumeise",
+    "Hurricane",
+    "Leopard"
 ]
 
 let  ImgNumber= [
@@ -57,17 +57,17 @@ function render(){
 function imgTemplate(index){
     return`
 
-    <img src="./img/${imgData[index]}" class="gallery_img" onclick="openDialog(${index})" alt="Thumbnail Bild"></img>
+    <img src="./img/${imgData[index]}" class="gallery_img" onclick="openDialog(${index})" alt="${ImgDescription[index]}"></img>
     <dialog class="imgDialog">
     <section class="dialog_section">
     <div class="menu_flex">
     <p>${ImgDescription[index]}</p>
     <img src="./img/close.svg" onclick="closeDialog(${index})" class="close_button" alt="Button zum Schließen">
     </div>
-    <img src="./img/${imgData[index]}" class="img_full-width" alt="Bild in voller Breite">
+    <img src="./img/${imgData[index]}" class="img_full-width" alt="${ImgDescription[index]}">
     </section>
     <nav>
-  <button>  <img src="./img/prev.svg" alt="Pfeil nach Vorne" ocnlick="nextPicture()"> </button>
+  <button>  <img src="./img/prev.svg" alt="Pfeil nach Vorne" onclick="plusSlides(1)"> </button>
     <p>${ImgNumber[index]}/12</p>
    <button> <img src="./img/next.svg" alt="Pfeil Zurück"></button>
 
@@ -79,6 +79,7 @@ function imgTemplate(index){
 function openDialog(index){
     const dialogref = document.getElementsByClassName("imgDialog") [index];
     dialogref.showModal();
+    dialogref.classList.add("opened")
 
 }
 
