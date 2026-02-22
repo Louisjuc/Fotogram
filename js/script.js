@@ -65,7 +65,7 @@ function imgTemplate(index){
     <section class="dialog_section">
     <div class="menu_flex">
     <p>${ImgDescription[index]}</p>
-    <img src="./img/close.svg" onclick="closeDialog(${index})" class="close_button" alt="Button zum Schließen">
+    <img src="./img/close.svg" onclick="closeDialog(${index})" class="close_button" alt="Button zum Schließen" tabeindex="0">
     </div>
     <img src="./img/${imgData[index]}" class="img_full-width" alt="${ImgDescription[index]}">
     </section>
@@ -94,7 +94,7 @@ function nextPicture(index){
   if(newIndex >= dialogs.length){
       newIndex = 11;
   }
-
+  
   dialogs[newIndex].showModal();
 }
 
