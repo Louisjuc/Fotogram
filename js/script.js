@@ -56,10 +56,10 @@ function contentDialog() {
   const dialogContent = document.getElementById("dialog_content");
   dialogContent.innerHTML = `
     <div class="menu_flex">
-      <p>${ImgDescription[newIndex]}</p>
-      <button onclick="closeDialog()" class="close_button">
-        <img src="./img/close.svg" alt="Button zum Schließen">
-      </button>
+    <p>${ImgDescription[newIndex]}</p>
+    <button onclick="closeDialog()" class="close_button">
+      <img src="./img/close.svg" alt="Button zum Schließen">
+    </button>
     </div>
     <img src="./img/${imgData[newIndex]}" class="img_full-width" alt="${ImgDescription[newIndex]}">
   `;
