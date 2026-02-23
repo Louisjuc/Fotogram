@@ -103,7 +103,7 @@ dialog{
 }
 
 dialog::backdrop{
-    background-color: var(--background-blue);
+    background-color: rgba(6, 23, 30, 0.4);
 }
 
 nav{
