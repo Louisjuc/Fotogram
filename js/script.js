@@ -59,8 +59,9 @@ function render(){
 
 function imgTemplate(index){
     return`
-
-    <img src="./img/${imgData[index]}" class="gallery_img" onclick="openDialog(${index})" alt="${ImgDescription[index]}"></img>
+  <button onclick="openDialog(${index})">
+    <img src="./img/${imgData[index]}" class="gallery_img" alt="${ImgDescription[index]}"></img>
+    </button>
     <dialog class="imgDialog" aria-haspopup="dialog" aria-control="Image Dialog">
     <section class="dialog_section">
     <div class="menu_flex">
@@ -72,9 +73,9 @@ function imgTemplate(index){
     <img src="./img/${imgData[index]}" class="img_full-width" alt="${ImgDescription[index]}">
     </section>
     <nav>
-  <button onclick="prevPicture(${index})" >  <img src="./img/prev.svg" alt="Pfeil zurück" > </button>
+  <button onclick="prevPicture(${index})" class="arrows">  <img src="./img/prev.svg" alt="Pfeil zurück" > </button>
     <p>${ImgNumber[index]}/12</p>
-   <button onclick="nextPicture(${index})" aria-label="Button nach Vorne"> <img src="./img/next.svg" alt="Vorwärts"></button>
+   <button onclick="nextPicture(${index})" class="arrows" aria-label="Button nach Vorne"> <img src="./img/next.svg" alt="Vorwärts"></button>
 
     </nav>
   </dialog>
