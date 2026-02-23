@@ -1,111 +1,83 @@
-let dialogs = document.getElementsByClassName("imgDialog");
+let imgData = [
+  "eisberg.jpg",
+  "ente.jpg",
+  "mensch_nacht.jpg",
+  "nachthimmel.png",
+  "panorama.jpg",
+  "schnee.jpg",
+  "see.jpg",
+  "stadt_nacht.jpg",
+  "vogel_white.jpg",
+  "vogel.jpg",
+  "weltall.jpg",
+  "wildkatze.jpg"
+];
 
-let imgData = 
-[
-"eisberg.jpg",
-"ente.jpg",
-"mensch_nacht.jpg",
-"nachthimmel.png",
-"panorama.jpg",
-"schnee.jpg",
- "see.jpg",
- "stadt_nacht.jpg",
- "vogel_white.jpg",
-"vogel.jpg",
-"weltall.jpg",
-"wildkatze.jpg"
-]
-
-let  ImgDescription= [
-    "Berge Panorama",
-    "Ente schwimmt im Wasser",
-    "Person betrachtet den Nachthimmel",
-    "Bewölkter Himmel",
-    "Aussicht Berg",
-    "Baum im Winter",
-    "See Panorama",
-    "Stadt bei Nacht",
-    "Schneeammer",
-    "Blaumeise",
-    "Hurricane",
-    "Leopard"
-]
-
-let  ImgNumber= [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-   8,
-   9,
-    10,
-   11,
-  12
-]
+let ImgDescription = [
+  "Berge Panorama",
+  "Ente schwimmt im Wasser",
+  "Person betrachtet den Nachthimmel",
+  "Bewölkter Himmel",
+  "Aussicht Berg",
+  "Baum im Winter",
+  "See Panorama",
+  "Stadt bei Nacht",
+  "Schneeammer",
+  "Blaumeise",
+  "Hurricane",
+  "Leopard"
+];
 
 
+let newIndex = 0;
 
-
-function render(){
-    let contentRef = document.getElementById('img_content');
-    contentRef.innerHTML = ""
-    for (let index = 0; index < imgData.length; index++) {
-        contentRef.innerHTML += imgTemplate(index, imgData);
-    }
-}
-
-function imgTemplate(index){
-    return`
-  <button onclick="openDialog(${index})">
-    <img src="./img/${imgData[index]}" class="gallery_img" alt="${ImgDescription[index]}"></img>
-    </button>
-    <dialog class="imgDialog" aria-haspopup="dialog" aria-control="Image Dialog">
-    <section class="dialog_section">
-    <div class="menu_flex">
-    <p>${ImgDescription[index]}</p>
-    <button onclick="closeDialog(${index})" class="close_button">
-    <img src="./img/close.svg"  alt="Button zum Schließen">
-    </button>
-    </div>
-    <img src="./img/${imgData[index]}" class="img_full-width" alt="${ImgDescription[index]}">
-    </section>
-    <nav>
-  <button onclick="prevPicture(${index})" class="arrows">  <img src="./img/prev.svg" alt="Pfeil zurück" > </button>
-    <p>${ImgNumber[index]}/12</p>
-   <button onclick="nextPicture(${index})" class="arrows" aria-label="Button nach Vorne"> <img src="./img/next.svg" alt="Vorwärts"></button>
-
-    </nav>
-  </dialog>
-    `
-}
-
-function openDialog(index){
-  dialogs[index].showModal();
-}
-
-function closeDialog(index){
-    dialogs[index].close();
-}
-function nextPicture(index){
-
-  dialogs[index].close();
-
-  let newIndex = index + 1;
-  if(newIndex >= dialogs.length){
-      newIndex = 11;
+function render() {
+  const contentRef = document.getElementById('img_content');
+  contentRef.innerHTML = "";
+  for (let index = 0; index < imgData.length; index++) {
+    contentRef.innerHTML += `
+      <button onclick="openDialog(${index})">
+        <img src="./img/${imgData[index]}" class="gallery_img" alt="${ImgDescription[index]}">
+      </button>
+    `;
   }
-  
-  dialogs[newIndex].showModal();
 }
 
-function prevPicture(index){
-dialogs[index].close();
-
-let newIndex = index - 1;
-dialogs[newIndex].showModal();
-
+function openDialog(index) {
+  newIndex = index;
+  contentDialog();
+  document.getElementById("imgDialog").showModal();
+}
+function closeDialog() {
+  document.getElementById("imgDialog").close();
 }
 
+function contentDialog() {
+  const dialogContent = document.getElementById("dialog_content");
+  dialogContent.innerHTML = `
+    <div class="menu_flex">
+      <p>${ImgDescription[newIndex]}</p>
+      <button onclick="closeDialog()" class="close_button">
+        <img src="./img/close.svg" alt="Button zum Schließen">
+      </button>
+    </div>
+    <img src="./img/${imgData[newIndex]}" class="img_full-width" alt="${ImgDescription[newIndex]}">
+  `;
+  document.getElementById("dialog_numb").innerHTML = `${newIndex +1}/12`;
+}
+
+function nextPicture() {
+  newIndex = (newIndex + 1); 
+if(newIndex >= 12){
+  newIndex = 11;
+}
+contentDialog();
+}
+
+function prevPicture() {
+  newIndex = (newIndex - 1); 
+  if(newIndex <= 0){
+    newIndex = 0;
+  }
+  contentDialog();
+}

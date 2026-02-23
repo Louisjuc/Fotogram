@@ -2,28 +2,47 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=≠, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotogram</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.svg">
-
 </head>
 <body onload="render()">
  
 <header>
- <a href="index.html"><img src="./img/fotogram.svg" class="fotogram_logo" alt="Fotogram Logo"> </a>  
+    <a href="index.html">
+        <img src="./img/fotogram.svg" class="fotogram_logo" alt="Fotogram Logo">
+    </a>  
 </header>
 
-    <main class="wrapper">
-<h1>Your personal photo album</h1>
-<div id="img_content"></div>
-    </main>
-    <footer>
-        <a href="https://developerakademie.com/?utm_term=developer%20akademie&utm_campaign=S2%20Search%20Brand%20%232&utm_source=adwords&utm_medium=ppc&hsa_acc=3199679202&hsa_cam=20207938697&hsa_grp=159989510365&hsa_ad=697748504391&hsa_src=g&hsa_tgt=kwd-1135526810540&hsa_kw=developer%20akademie&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=20207938697&gbraid=0AAAAADgFy8NirJci1BD-48s-xSXdwGstI&gclid=EAIaIQobChMIzOO8uriYkgMV4pKDBx31ODnLEAAYASAAEgKTTfD_BwE" target="_blank"> <img src="./img/Logo.svg" class="dev_logo" alt="Logo der Developer Akademie"></a>
-         <p>© 2023 Developer Akademie GmbH</p>  
-     </footer>
+<main class="wrapper">
+    <h1>Your personal photo album</h1>
+
+    <div id="img_content"></div>
+
+    <dialog id="imgDialog" aria-haspopup="dialog" aria-control="Image Dialog">
+        <section class="dialog_section" id="dialog_content">
+        </section>
+        <nav>
+            <button onclick="prevPicture()" class="arrows">
+                <img src="./img/prev.svg" alt="Pfeil zurück">
+            </button>
+            <p id="dialog_numb">/12</p>
+            <button onclick="nextPicture()" class="arrows" aria-label="Button nach Vorne">
+                <img src="./img/next.svg" alt="Vorwärts">
+            </button>
+        </nav>
+    </dialog>
+</main>
+
+<footer>
+    <a href="https://developerakademie.com/?utm_term=developer%20akademie&utm_campaign=S2%20Search%20Brand%20%232&utm_source=adwords&utm_medium=ppc&hsa_acc=3199679202&hsa_cam=20207938697&hsa_grp=159989510365&hsa_ad=697748504391&hsa_src=g&hsa_tgt=kwd-1135526810540&hsa_kw=developer%20akademie&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=20207938697&gbraid=0AAAAADgFy8NirJci1BD-48s-xSXdwGstI&gclid=EAIaIQobChMIzOO8uriYkgMV4pKDBx31ODnLEAAYASAAEgKTTfD_BwE" target="_blank"> 
+        <img src="./img/Logo.svg" class="dev_logo" alt="Logo der Developer Akademie">
+    </a>
+    <p>© 2023 Developer Akademie GmbH</p>  
+</footer>
+
+
 </body>
 <script src="./js/script.js"></script>
-
-
 </html>

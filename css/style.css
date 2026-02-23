@@ -15,6 +15,7 @@ body{
 
 :hover{
     transition: all 500ms ease;
+    cursor: pointer;
 }
 
 p{
