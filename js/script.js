@@ -69,15 +69,25 @@ function contentDialog() {
 function nextPicture() {
   newIndex = (newIndex + 1); 
 if(newIndex >= 12){
-  newIndex = 11;
+  newIndex = 0;
 }
+
 contentDialog();
 }
 
 function prevPicture() {
   newIndex = (newIndex - 1); 
   if(newIndex <= 0){
-    newIndex = 0;
+    newIndex = 11;
   }
   contentDialog();
 }
+
+function onClick(event) {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+}
+
+const dialog = document.querySelector("dialog");
+dialog.addEventListener("click", onClick);
